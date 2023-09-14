@@ -57,6 +57,7 @@ def start(update: Update, context: CallbackContext) -> int:
 
     update.message.reply_text("I dati iniziali sono: \n\nData iniziale: "+data_iniziale+
     "\nData finale: "+data_finale+"\nTipo corso selezionato: "+corso+"\nAula selezionata: "+aula+"\nMostrare solo esami: "+esame+"\nDescrizione breve: "+descrizione)
+    update.message.reply_text("N.B. se ci sono troppi dati il bot non riuscirá a rispondere❌.\nIn caso diminuire l'arco temporale di ricerca")
     
     return AFTER_START
 
@@ -227,6 +228,7 @@ def cancella_parametri(update: Update, context: CallbackContext) -> int:
     context.user_data['CORSO']=""
     context.user_data["ESAME"]=""
     context.user_data["AULA"]=""
+    context.user_data['DESCRIZIONE']=""
     context.user_data['PROF']=[]
 
     update.message.reply_text("I parametri sono stati reimpostati ai valori di default")
@@ -260,7 +262,7 @@ def quit_command(update: Update, context: CallbackContext) -> int:
 def main() -> None:
     """Run the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("***REMOVED***")
+    updater = Updater("INSERIRE QUI TOKEN BOT")
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
